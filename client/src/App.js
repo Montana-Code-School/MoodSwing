@@ -15,7 +15,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
   <body>
-    hello world!!!! test commit
+    hello world!!!! 
     <a-scene>
       <a-text value="Hello World" position="1 0.5 -3"></a-text>
       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
