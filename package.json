@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "aframe": "^0.7.1",
+    "aframe-particle-system-component": "^1.0.11",
     "aframe-react": "^4.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
