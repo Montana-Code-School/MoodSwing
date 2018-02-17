@@ -11,5 +11,11 @@
     "default_popup": "index.html",
     "default_title": "React Ext"
   },
-  "version": "1.0"
+  "version": "1.0",
+  "background": {
+    "page": "index.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
 }
