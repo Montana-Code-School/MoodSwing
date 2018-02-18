@@ -28,15 +28,15 @@ class Semantic extends React.Component {
     const { value } = this.state
     // const { horizontal } = this.state
     const horizontalLabels = {
-      0: 'Low',
-      25: 'Medium',
-      50: 'High'
+      0: 'ANGRY KITTY',
+      1: 'NUETRAL KITTY',
+      2: 'HAPPY KITTY'
     }
     return (
       <div className='slider'>
         <Slider
           min={0}
-          max={50}
+          max={2}
           value={value}
           labels={horizontalLabels}
           onChangeStart={this.handleChangeStart}
