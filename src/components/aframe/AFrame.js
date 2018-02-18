@@ -11,6 +11,7 @@ class VRScene extends React.Component {
         <Entity primitive='a-sphere' color="green" position="-2 0 -3"/>
         <Entity primitive='a-cylinder' color="blue" position="2 0 -3"/>
         <Entity primitive='a-sky' color="skyblue"/>
+        <Entity primitive='a-text' value="MOODSWING" color="black" position="1 3 -3"/>
       </Scene>
     );
   }
