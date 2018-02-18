@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import Slider from 'react-rangeslider';
 import './Semantic.css'
 
@@ -27,7 +26,7 @@ class Semantic extends React.Component {
   
   render () {
     const { value } = this.state
-    const { horizontal } = this.state
+    // const { horizontal } = this.state
     const horizontalLabels = {
       0: 'Low',
       25: 'Medium',

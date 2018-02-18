@@ -2,17 +2,15 @@ import 'aframe';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class VRScene extends React.Component {
   render () {
     return (
       <Scene>
-        <Entity geometry={{primitive: 'box'}} material={{color: 'red'}} position={{x: 0, y: 0, z: -5}}/>
-        <Entity particle-system={{preset: 'snow'}}/>
-        <Entity light={{type: 'point'}}/>
-        <Entity gltf-model={{src: 'virtualcity.gltf'}}/>
-        <Entity text={{value: 'MOODSWING!'}}/>
+        <Entity primitive='a-box' color="red" position="0 0 -5"/>
+        <Entity primitive='a-sphere' color="green" position="-2 0 -3"/>
+        <Entity primitive='a-cylinder' color="blue" position="2 0 -3"/>
+        <Entity primitive='a-sky' color="skyblue"/>
       </Scene>
     );
   }
