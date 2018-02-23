@@ -1,3 +1,5 @@
+/* global chrome */
+
 import React from 'react';
 import Slider from 'react-rangeslider';
 import './Semantic.css'
@@ -6,7 +8,7 @@ class Semantic extends React.Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      value: 25
+      value: 0
     }
   }
 
@@ -18,10 +20,22 @@ class Semantic extends React.Component {
     this.setState({
       value: value
     })
+    console.log('Change event completed')
+    chrome.storage.sync.set({'moodValue': this.state.value})
+    chrome.storage.sync.get('moodValue', function(value) {
+      console.log(value);
+    });
   };
 
-  handleChangeComplete = () => {
-    console.log('Change event completed')
+  handleChangeComplete = value => {
+  //   this.setState({
+  //     value: value
+  //   })
+  //   console.log('Change event completed')
+  //   chrome.storage.sync.set({'moodValue': this.state.value})
+  //   chrome.storage.sync.get('moodValue', function(value) {
+  //     console.log(value);
+  //   });
   };
   
   render () {
@@ -29,7 +43,7 @@ class Semantic extends React.Component {
     // const { horizontal } = this.state
     const horizontalLabels = {
       0: 'ANGRY KITTY',
-      1: 'NUETRAL KITTY',
+      1: 'NEUTRAL KITTY',
       2: 'HAPPY KITTY'
     }
     return (
