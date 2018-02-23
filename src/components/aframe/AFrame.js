@@ -25,9 +25,9 @@ class VRScene extends React.Component {
         <Entity primitive='a-sphere' color="green" position="-2 0 -3"/>
         <Entity primitive='a-cylinder' color="blue" position="2 0 -3"/>
         <Entity primitive='a-sky' src={winterSkyVR}/>
-        <Entity primitive='a-text'scale="0.6 1.2 1" value="MOODSWING" color="black" position="-1 2.85 -3" width="3"/>
+        <Entity primitive='a-text'scale="0.6 1.2 1" value="MOODSWING" color="black" position="-1 2.85 -3" width="3" size="6"/>
         <Entity primitive='a-text' value={greet} color="black" position="-1 3 -3"/>
-        <Entity primitive='a-plane' rotation="-90 0 0" color="#CCC" height="10" width="10"/> 
+        <Entity primitive='a-plane' rotation="-90 0 0" color="orange" height="10" width="10"/> 
       </Scene>
     );
   }
