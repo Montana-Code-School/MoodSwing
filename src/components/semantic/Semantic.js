@@ -2,15 +2,16 @@
 
 import React from 'react';
 import Slider from 'react-rangeslider';
-import './Semantic.css'
+import { Button } from 'semantic-ui-react';
+import './Semantic.css';
 
 class Semantic extends React.Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      values: [],
-      dates: []
+      value: 1,
     }
+    this.handleClickEvent = this.handleClickEvent.bind(this);
   }
 
   handleChangeStart = () => {
@@ -19,8 +20,7 @@ class Semantic extends React.Component {
 
   handleChange = value => {
     this.setState({
-      values: [...this.state.values, value],
-      dates: [...this.state.dates, new Date().toString()]
+      value: value,
     })
     console.log('Change event completed')
     let currentMoodValue = {
@@ -57,9 +57,23 @@ class Semantic extends React.Component {
   //     console.log(value);
   //   });
   };
+
+  handleClickEvent(e) {
+    e.preventDefault();
+    chrome.storage.sync.clear(function() {
+      var error = chrome.runtime.lastError;
+      if (error) {
+          console.error(error);
+      }
+   });
+  };
+
+  // clearStorage = () => {
+  //   console.log("it's working");
+  // };
   
   render () {
-    const value = this.state.values.length ? this.state.values[this.state.values.length-1] : 0;
+    const value = this.state.value;
     const horizontalLabels = {
       0: 'ANGRY KITTY',
       1: 'NEUTRAL KITTY',
@@ -67,6 +81,7 @@ class Semantic extends React.Component {
     }
     return (
       <div className='slider'>
+        <Button onClick={this.handleClickEvent}>Erase The Past</Button>
         <Slider
           min={0}
           max={2}
