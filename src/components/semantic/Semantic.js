@@ -23,20 +23,28 @@ class Semantic extends React.Component {
       dates: [...this.state.dates, new Date().toString()]
     })
     console.log('Change event completed')
-    chrome.storage.sync.set({'moodValue': {
-      dates: this.state.dates,
-      values: this.state.values
-    }});
-    // localStorage.setItem('moodValue', {
-    //   dates: this.state.dates,
-    //   values: this.state.values
-    // })
+    let currentMoodValue = {
+      vals: [],
+      dates: []
+    };
     chrome.storage.sync.get('moodValue', function(value) {
-      console.log(value);
+      currentMoodValue = value.hasOwnProperty("moodValue") ? value.moodValue : currentMoodValue; 
+    
+      let newMoodValue = {};
+      newMoodValue.vals = [...currentMoodValue.vals, value]
+      newMoodValue.dates = [...currentMoodValue.dates, new Date().toString()]
+        chrome.storage.sync.set({'moodValue': newMoodValue });
+      // localStorage.setItem('moodValue', {
+      //   dates: this.state.dates,
+      //   values: this.state.values
+      // })
+      chrome.storage.sync.get('moodValue', function(value) {
+        console.log(value);
+      });
+      // localStorage.getItem('moodValue', function(value) {
+      //   console.log(value);
+      // });
     });
-    // localStorage.getItem('moodValue', function(value) {
-    //   console.log(value);
-    // });
   };
 
   handleChangeComplete = value => {
