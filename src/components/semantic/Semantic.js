@@ -8,7 +8,8 @@ class Semantic extends React.Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      value: 0
+      values: [],
+      dates: []
     }
   }
 
@@ -18,13 +19,24 @@ class Semantic extends React.Component {
 
   handleChange = value => {
     this.setState({
-      value: value
+      values: [...this.state.values, value],
+      dates: [...this.state.dates, new Date().toString()]
     })
     console.log('Change event completed')
-    chrome.storage.sync.set({'moodValue': this.state.value})
+    chrome.storage.sync.set({'moodValue': {
+      dates: this.state.dates,
+      values: this.state.values
+    }});
+    // localStorage.setItem('moodValue', {
+    //   dates: this.state.dates,
+    //   values: this.state.values
+    // })
     chrome.storage.sync.get('moodValue', function(value) {
       console.log(value);
     });
+    // localStorage.getItem('moodValue', function(value) {
+    //   console.log(value);
+    // });
   };
 
   handleChangeComplete = value => {
@@ -39,8 +51,7 @@ class Semantic extends React.Component {
   };
   
   render () {
-    const { value } = this.state
-    // const { horizontal } = this.state
+    const value = this.state.values.length ? this.state.values[this.state.values.length-1] : 0;
     const horizontalLabels = {
       0: 'ANGRY KITTY',
       1: 'NEUTRAL KITTY',
