@@ -4,6 +4,7 @@ import React from 'react';
 import Slider from 'react-rangeslider';
 import { Button } from 'semantic-ui-react';
 import './Semantic.css';
+import "../semantic/src/themes/darkly/semantic.darkly.css";
 
 class Semantic extends React.Component {
   constructor (props, context) {
