@@ -11,6 +11,7 @@
     "react-rangeslider": "^2.2.0",
     "react-scripts": "1.1.1",
     "semantic-ui": "^2.3.0",
+    "semantic-ui-forest-themes": "^1.0.3",
     "semantic-ui-react": "^0.78.2"
   },
   "scripts": {
