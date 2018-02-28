@@ -75,12 +75,12 @@ class ToneAnalyzer extends React.Component {
     
     return (
       <div>
-      <div className="ui animated button">
+        <div className="ui animated button">
         <div className="visible content" onClick={this.handleClickEvent}>
-          Erase the Past
+          Analyze My Tone
         </div>
         <div className="hidden content">
-          Be Gone!
+          Submit!
         </div>
       </div>
       <div>
