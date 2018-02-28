@@ -3,8 +3,24 @@
 import React from 'react';
 // import { Button } from 'semantic-ui-react';
 import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
+import axios from 'axios';
 
 class ToneAnalyzer extends React.Component {
+
+componentDidMount() {
+  axios.get(
+    "https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?text=" +
+    "This%20is%20a%20test%20of%20this%20API%20but%20it%20needs%20some%20feelings%20and%20I%20am%20trying%20again!" +
+    "&version=2018-02-27&sentences=true&tones=emotion"
+  )
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log("Nope");
+    });
+}
+
   // constructor (props, context) {
   //   super(props, context)
   //   this.state = {
@@ -75,17 +91,19 @@ class ToneAnalyzer extends React.Component {
     
     return (
       <div>
+        <div class="ui form segment">
+            <div class="field">
+              <label>What's on your mind?</label><textarea rows="2"></textarea>
+            </div>
         <div className="ui animated button">
         <div className="visible content" onClick={this.handleClickEvent}>
           Analyze My Tone
         </div>
         <div className="hidden content">
-          Submit!
+          Go!
         </div>
-      </div>
-      <div>
-      
-      </div>
+          </div>
+        </div>
       </div>
     )
   }

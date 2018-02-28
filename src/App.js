@@ -9,7 +9,9 @@ class App extends Component {
       <div>
         <VRScene/>
         <Semantic/>
-        <ToneAnalyzer/>
+        <div>
+          <ToneAnalyzer/>
+        </div>
       </div>
     );
   }
