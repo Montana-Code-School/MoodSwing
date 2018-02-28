@@ -3,8 +3,7 @@
 import React from 'react';
 import Slider from 'react-rangeslider';
 import { Button } from 'semantic-ui-react';
-import './Semantic.css';
-import "../semantic/src/themes/darkly/semantic.darkly.css";
+import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
 
 class Semantic extends React.Component {
   constructor (props, context) {
@@ -81,7 +80,6 @@ class Semantic extends React.Component {
       2: 'HAPPY KITTY'
     }
     return (
-      <div className='slider'>
         <Button onClick={this.handleClickEvent}>Erase The Past</Button>
         <Slider
           min={0}

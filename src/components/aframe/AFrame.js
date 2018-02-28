@@ -3,7 +3,6 @@ import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import React from 'react';
 import winterSkyVR from './winterSkyVR.jpg';
-import "../semantic/src/themes/darkly/semantic.darkly.css";
 
 class VRScene extends React.Component {
   render () {
