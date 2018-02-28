@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Slider from 'react-rangeslider';
-import { Button } from 'semantic-ui-react';
+import { Button, Sidebar, Menu, Segment, Icon, Header } from 'semantic-ui-react';
 import './Semantic.css';
 
 class Semantic extends React.Component {
@@ -10,9 +10,12 @@ class Semantic extends React.Component {
     super(props, context)
     this.state = {
       value: 1,
+      visible: false
     }
     this.handleClickEvent = this.handleClickEvent.bind(this);
   }
+
+  toggleVisibility = () => this.setState({ visible: !this.state.visible })
 
   handleChangeStart = () => {
     console.log('Change event started')
@@ -73,6 +76,7 @@ class Semantic extends React.Component {
   // };
   
   render () {
+    const { visible } = this.state.visible
     const value = this.state.value;
     const horizontalLabels = {
       0: 'ANGRY KITTY',
@@ -81,6 +85,28 @@ class Semantic extends React.Component {
     }
     return (
       <div className='slider'>
+        <Button onClick={this.toggleVisibility}>Toggle Visibility</Button>
+        <Sidebar.Pushable as={Segment}>
+          <Sidebar as={Menu} animation='overlay' width='thin' visible={visible} icon='labeled' vertical inverted>
+            <Menu.Item name='home'>
+              <Icon name='home' />
+              Home
+            </Menu.Item>
+            <Menu.Item name='gamepad'>
+              <Icon name='gamepad' />
+              Games
+            </Menu.Item>
+            <Menu.Item name='camera'>
+              <Icon name='camera' />
+              Channels
+            </Menu.Item>
+          </Sidebar>
+          <Sidebar.Pusher>
+            <Segment basic>
+              <Header as='h3'>Application Content</Header>
+            </Segment>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
         <Button onClick={this.handleClickEvent}>Erase The Past</Button>
         <Slider
           min={0}
