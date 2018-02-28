@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Slider from 'react-rangeslider';
-import { Button } from 'semantic-ui-react';
+// import { Button } from 'semantic-ui-react';
+import "./Semantic.css"
 import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
 
 class Semantic extends React.Component {
@@ -80,16 +81,26 @@ class Semantic extends React.Component {
       2: 'HAPPY KITTY'
     }
     return (
-        <Button onClick={this.handleClickEvent}>Erase The Past</Button>
-        <Slider
-          min={0}
-          max={2}
-          value={value}
-          labels={horizontalLabels}
-          onChangeStart={this.handleChangeStart}
-          onChange={this.handleChange}
-          onChangeComplete={this.handleChangeComplete}
-        />
+      <div>
+      <div className="ui animated button">
+        <div className="visible content" onClick={this.handleClickEvent}>
+          Erase the Past
+        </div>
+        <div className="hidden content">
+          Be Gone!
+        </div>
+      </div>
+      <div>
+      <Slider
+        min={0}
+        max={2}
+        value={value}
+        labels={horizontalLabels}
+        onChangeStart={this.handleChangeStart}
+        onChange={this.handleChange}
+        onChangeComplete={this.handleChangeComplete}
+      />
+      </div>
       </div>
     )
   }
