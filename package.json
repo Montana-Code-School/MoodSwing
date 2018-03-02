@@ -8,6 +8,7 @@
     "aframe-react": "^4.4.0",
     "axios": "^0.18.0",
     "curl": "^0.1.4",
+    "font-awesome": "^4.7.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rangeslider": "^2.2.0",
