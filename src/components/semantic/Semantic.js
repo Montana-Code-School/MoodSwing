@@ -23,20 +23,20 @@ class Semantic extends React.Component {
     console.log('Change event started')
   };
 
-  handleChange = value => {
+  handleChange = moodVal => {
     this.setState({
-      value: value,
+      value: moodVal,
     })
     console.log('Change event completed')
     let currentMoodValue = {
       vals: [],
       dates: []
     };
-    chrome.storage.sync.get('moodValue', function(value) {
-      currentMoodValue = value.hasOwnProperty("moodValue") ? value.moodValue : currentMoodValue; 
-    
+    chrome.storage.sync.get('moodValue', function(storedVal) {
+      currentMoodValue = storedVal.hasOwnProperty("moodValue") ? storedVal.moodValue : currentMoodValue; 
+      console.log(currentMoodValue)
       let newMoodValue = {};
-      newMoodValue.vals = [...currentMoodValue.vals, value]
+      newMoodValue.vals = [...currentMoodValue.vals, moodVal]
       newMoodValue.dates = [...currentMoodValue.dates, new Date().toString()]
         chrome.storage.sync.set({'moodValue': newMoodValue });
       // localStorage.setItem('moodValue', {
@@ -44,7 +44,7 @@ class Semantic extends React.Component {
       //   values: this.state.values
       // })
       chrome.storage.sync.get('moodValue', function(value) {
-        console.log(value);
+        // console.log(value);
       });
       // localStorage.getItem('moodValue', function(value) {
       //   console.log(value);
@@ -107,14 +107,14 @@ class Semantic extends React.Component {
           </Sidebar.Pushable>
           </Button>
       <div>
-        <div className="ui animated button">
-          <div className="visible content" onClick={this.handleClickEvent}>
+        <button className="ui animated button" onClick={this.handleClickEvent}>
+          <div className="visible content">
             Erase the Past
           </div>
         <div className="hidden content">
           Be Gone!
         </div>
-      </div>
+      </button>
       <div className='slider'>
       <Slider
         min={0}

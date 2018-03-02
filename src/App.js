@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <VRScene/>
         <Semantic/>
-        <div>
+        <div className="ui centered grid">
           <ToneAnalyzer/>
         </div>
       </div>
