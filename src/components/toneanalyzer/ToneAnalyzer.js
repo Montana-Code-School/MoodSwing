@@ -11,8 +11,8 @@ class ToneAnalyzer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      enteredMoodText: "What's on your mind?",
-      textMood: ""
+      enteredToneText: "What's on your mind?",
+      moodToneText: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -35,17 +35,19 @@ class ToneAnalyzer extends React.Component {
     "&version=2018-02-27&sentences=true&tones=emotion"
 
     // "https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?text=" +
-    // enteredMoodText +
+    // enteredToneText +
     // "&version=2018-02-27&sentences=true&tones=emotion"
   )
     .then((response) => {
       console.log(response)
-
+      this.setState({
+        // moodToneText = response.data;
     })
     .catch((error) => {
       console.log("Nope");
     });
-}
+
+    }  }
 
   // constructor (props, context) {
   //   super(props, context)
