@@ -11,7 +11,7 @@ class ToneAnalyzer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      enteredToneText: "Im feeling nervous about trying to make this work. Why don't we give it a whirl",
+      enteredToneText: "",
       moodTones: []
     };
 
@@ -20,15 +20,12 @@ class ToneAnalyzer extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ 
+      enteredToneText: event.target.value });
   }
 
   handleSubmit(event) {
-    console.log('Text to be analyzed: ' + this.state.value);
     event.preventDefault();
-  }
-
-  componentDidMount() {
     axios.get(
       "https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?text=" +
       this.state.enteredToneText +
@@ -41,7 +38,7 @@ class ToneAnalyzer extends React.Component {
         })
       })
       .catch((error) => {
-        console.log("Nope");
+        alert("Tell me more?")
       });
   }
   
@@ -56,9 +53,9 @@ class ToneAnalyzer extends React.Component {
           <div className="field">
             <label>
               What's on your mind?
-              <textarea />
+              <textarea onChange = { this.handleChange }/>
             </label>
-            <input className="ui submit button" type="submit" value="Analyze My Mood" onClick={this.handleClickEvent}>
+            <input className="ui submit button" type="submit" value="Analyze My Mood">
             </input>
           </div>
         <h1> You are feeling: </h1>
