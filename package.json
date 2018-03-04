@@ -6,10 +6,16 @@
     "aframe": "^0.7.1",
     "aframe-particle-system-component": "^1.0.11",
     "aframe-react": "^4.4.0",
+    "axios": "^0.18.0",
+    "curl": "^0.1.4",
+    "font-awesome": "^4.7.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rangeslider": "^2.2.0",
     "react-scripts": "1.1.1",
+    "react-textarea-count": "^1.0.3",
+    "semantic-ui": "^2.3.0",
+    "semantic-ui-forest-themes": "^1.0.3",
     "semantic-ui-react": "^0.78.2"
   },
   "scripts": {
