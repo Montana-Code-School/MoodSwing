@@ -20,15 +20,6 @@ class VRScene extends React.Component {
 
     return (
       <Scene>
-<<<<<<< HEAD
-        <Entity gltf-model={{src: 'scene.gltf'}}/>
-        <Entity geometry={{primitive: 'box'}} material={{color: 'red'}} position={{x: 0, y: 0, z: -5}}/>
-        <Entity particle-system={{preset: 'snow'}}/>
-        <Entity light={{type: 'point'}}/>
-        <Entity gltf-model={{src: 'virtualcity.gltf'}}/>
-        <Entity text={{value: 'MOODSWING!'}}/>
-        
-=======
         <Entity particle-system={{preset: 'snow', particleCount: 5000}}/>
         <Entity primitive='a-box' color="red" position="0 0 -5"/>
         <Entity primitive='a-sphere' color="green" position="-2 0 -3"/>
@@ -37,7 +28,6 @@ class VRScene extends React.Component {
         <Entity primitive='a-text'scale="0.6 1.2 1" value="MOODSWING" color="black" position="-1 2.85 -3" width="3" size="6"/>
         <Entity primitive='a-text' value={greet} color="black" position="-1 3 -3"/>
         <Entity primitive='a-plane' rotation="-90 0 0" color="orange" height="10" width="10"/> 
->>>>>>> develop
       </Scene>
     );
   }
