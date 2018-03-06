@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Slider from 'react-rangeslider';
-import { Button, Sidebar, Menu, Segment, Icon, Header } from 'semantic-ui-react';
+import { Button, Sidebar, Menu, Segment, Icon } from 'semantic-ui-react';
 import './Semantic.css';
 import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
 import 'font-awesome/css/font-awesome.min.css';
