@@ -58,7 +58,7 @@ class ToneAnalyzer extends React.Component {
             <input className="ui submit button" type="submit" value="Analyze My Mood">
             </input>
           </div>
-        <h1> You are feeling: </h1>
+         You are feeling: 
         <ul>
           {moodItems}
         </ul>

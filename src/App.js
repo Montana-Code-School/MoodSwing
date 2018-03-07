@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import VRScene from './components/aframe/AFrame';
 import Semantic from './components/semantic/Semantic';
-import ToneAnalyzer from './components/toneanalyzer/ToneAnalyzer';
+// import ToneAnalyzer from './components/toneanalyzer/ToneAnalyzer';
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
         <VRScene/>
         <Semantic/>
         <div className="ui centered grid">
-          <ToneAnalyzer/>
+          {/* <ToneAnalyzer/> */}
         </div>
       </div>
     );

@@ -2,22 +2,20 @@
 
 import React from 'react';
 import Slider from 'react-rangeslider';
-import { Button, Sidebar, Menu, Segment, Icon, Header } from 'semantic-ui-react';
+import { Button, Modal } from 'semantic-ui-react';
 import './Semantic.css';
 import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
 import 'font-awesome/css/font-awesome.min.css';
+import ToneAnalyzer from '../toneanalyzer/ToneAnalyzer';
 
 class Semantic extends React.Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
       value: 1,
-      visible: false
     }
     this.handleClickEvent = this.handleClickEvent.bind(this);
   }
-
-  toggleVisibility = () => this.setState({ visible: !this.state.visible })
 
   handleChangeStart = () => {
     console.log('Change event started')
@@ -78,7 +76,6 @@ class Semantic extends React.Component {
   // };
   
   render () {
-    const { visible } = this.state
     const value = this.state.value;
     const horizontalLabels = {
       0: 'ANGRY KITTY',
@@ -87,34 +84,24 @@ class Semantic extends React.Component {
     }
     return (
       <div>
-          <Button compact onClick={this.toggleVisibility}>
-          <Sidebar.Pushable as={Segment}>
-            <Sidebar as={Menu} animation='push' visible={visible} icon='labeled' vertical inverted>
-              <Menu.Item>
-                <Icon name='gamepad' />
-                Games
-              </Menu.Item>
-              <Menu.Item >
-                <Icon name='camera' />
-                Channels
-              </Menu.Item>
-            </Sidebar>
-            <Sidebar.Pusher>
-              <Segment basic>
-                <i className="fa fa-bars"></i>
-              </Segment>
-            </Sidebar.Pusher>
-          </Sidebar.Pushable>
-          </Button>
+            <Modal trigger={<Button className="ui animated button"><i className="fa fa-bars"></i></Button>}>
+            <Modal.Header>Meow Check Your Mood</Modal.Header>
+            <Modal.Content>
+              <Modal.Description>
+                <ToneAnalyzer/>
+                <button className="ui animated button" onClick={this.handleClickEvent}>
+                  <div className="visible content">
+                    Erase the Past
+                  </div>
+                  <div className="hidden content">
+                    Be Gone!
+                  </div>
+                </button>
+              </Modal.Description>
+            </Modal.Content>
+          </Modal>
       <div>
-        <button className="ui animated button" onClick={this.handleClickEvent}>
-          <div className="visible content">
-            Erase the Past
-          </div>
-        <div className="hidden content">
-          Be Gone!
-        </div>
-      </button>
+        
       <div className='slider'>
       <Slider
         min={0}
