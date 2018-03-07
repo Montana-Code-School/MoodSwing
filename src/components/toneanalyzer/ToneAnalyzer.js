@@ -1,93 +1,70 @@
 /* global chrome */
 
 import React from 'react';
+// import Textarea from 'react-textarea-count';
 // import { Button } from 'semantic-ui-react';
 import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
+import axios from 'axios';
 
 class ToneAnalyzer extends React.Component {
-  // constructor (props, context) {
-  //   super(props, context)
-  //   this.state = {
-  //     value: 1,
-  //   }
-  //   this.handleClickEvent = this.handleClickEvent.bind(this);
-  // }
 
-  // handleChangeStart = () => {
-  //   console.log('Change event started')
-  // };
+  constructor(props) {
+    super(props);
+    this.state = {
+      enteredToneText: "",
+      moodTones: []
+    };
 
-  // handleChange = value => {
-  //   this.setState({
-  //     value: value,
-  //   })
-  //   console.log('Change event completed')
-  //   let currentMoodValue = {
-  //     vals: [],
-  //     dates: []
-  //   };
-  //   chrome.storage.sync.get('moodValue', function(value) {
-  //     currentMoodValue = value.hasOwnProperty("moodValue") ? value.moodValue : currentMoodValue; 
-    
-  //     let newMoodValue = {};
-  //     newMoodValue.vals = [...currentMoodValue.vals, value]
-  //     newMoodValue.dates = [...currentMoodValue.dates, new Date().toString()]
-  //       chrome.storage.sync.set({'moodValue': newMoodValue });
-  //     // localStorage.setItem('moodValue', {
-  //     //   dates: this.state.dates,
-  //     //   values: this.state.values
-  //     // })
-  //     chrome.storage.sync.get('moodValue', function(value) {
-  //       console.log(value);
-  //     });
-  //     // localStorage.getItem('moodValue', function(value) {
-  //     //   console.log(value);
-  //     // });
-  //   });
-  // };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-  // handleChangeComplete = value => {
-  // //   this.setState({
-  // //     value: value
-  // //   })
-  // //   console.log('Change event completed')
-  // //   chrome.storage.sync.set({'moodValue': this.state.value})
-  // //   chrome.storage.sync.get('moodValue', function(value) {
-  // //     console.log(value);
-  // //   });
-  // };
+  handleChange(event) {
+    this.setState({ 
+      enteredToneText: event.target.value });
+  }
 
-  // handleClickEvent(e) {
-  //   e.preventDefault();
-  //   chrome.storage.sync.clear(function() {
-  //     var error = chrome.runtime.lastError;
-  //     if (error) {
-  //         console.error(error);
-  //     }
-  //  });
-  // };
-
-  // // clearStorage = () => {
-  // //   console.log("it's working");
-  // // };
-  
-  render () {
-    
-    return (
-      <div>
-      {/* <div className="ui animated button">
-        <div className="visible content" onClick={this.handleClickEvent}>
-          Erase the Past
-        </div>
-        <div className="hidden content">
-          Be Gone!
-        </div>
-      </div>
-      <div>
-      
-      </div> */}
-      </div>
+  handleSubmit(event) {
+    event.preventDefault();
+    axios.get(
+      "https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?text=" +
+      this.state.enteredToneText +
+      "&version=2018-02-27&sentences=true&tones=emotion"
     )
+      .then((response) => {
+        console.log(response)
+        this.setState({
+          moodTones: response.data.document_tone.tones
+        })
+      })
+      .catch((error) => {
+        alert("Tell me more?")
+      });
+  }
+  
+  render() {
+    const moodItems = this.state.moodTones.map((moodTone) =>
+      <li key={moodTone.tone_id}>{moodTone.tone_name}</li>
+    );
+
+    return(
+      <form onSubmit = { this.handleSubmit } >
+        <div className="ui form segment">
+          <div className="field">
+            <label>
+              What's on your mind?
+              <textarea onChange = { this.handleChange }/>
+            </label>
+            <input className="ui submit button" type="submit" value="Analyze My Mood">
+            </input>
+          </div>
+         You are feeling: 
+        <ul>
+          {moodItems}
+        </ul>
+        </div>
+      </form>
+    );
   }
 }
 
