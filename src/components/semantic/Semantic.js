@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Slider from 'react-rangeslider';
-import { Button, Modal } from 'semantic-ui-react';
+import { Button, Modal, Icon } from 'semantic-ui-react';
 import './Semantic.css';
 import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
 import 'font-awesome/css/font-awesome.min.css';
@@ -84,7 +84,7 @@ class Semantic extends React.Component {
     }
     return (
       <div>
-            <Modal trigger={<Button className="ui animated button"><i className="fa fa-bars"></i></Button>}>
+            <Modal trigger={<Button className="ui animated button"><Icon className="fa fa-heart"/></Button>}>
             <Modal.Header>Meow Check Your Mood</Modal.Header>
             <Modal.Content>
               <Modal.Description>
