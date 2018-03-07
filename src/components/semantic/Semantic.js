@@ -7,6 +7,7 @@ import './Semantic.css';
 import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
 import 'font-awesome/css/font-awesome.min.css';
 import ToneAnalyzer from '../toneanalyzer/ToneAnalyzer';
+import Graph from '../graph/Graph';
 
 class Semantic extends React.Component {
   constructor (props, context) {
