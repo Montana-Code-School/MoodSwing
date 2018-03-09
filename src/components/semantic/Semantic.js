@@ -90,6 +90,7 @@ class Semantic extends React.Component {
             <Modal.Content>
               <Modal.Description>
                 <ToneAnalyzer/>
+                <Graph/>
                 <button className="ui animated button" onClick={this.handleClickEvent}>
                   <div className="visible content">
                     Erase the Past
@@ -98,7 +99,6 @@ class Semantic extends React.Component {
                     Be Gone!
                   </div>
                 </button>
-                <Graph/>
               </Modal.Description>
             </Modal.Content>
           </Modal>

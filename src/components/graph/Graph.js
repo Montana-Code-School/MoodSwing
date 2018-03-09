@@ -3,23 +3,24 @@
 import React from 'react';
 import Chart from 'chart.js';
 
-
 class Graph extends React.Component {
-  constructor (props, context) {
-    super(props, context)
+  constructor (props) {
+    super(props)
     this.state = {
     }
   }
 
   componentDidMount() {
-    var ctx = document.getElementById("myChart");
+    chrome.storage.sync.get('moodValue', function(value) {
+      let storedChromeMoodVals = value.moodValue.vals;
+      var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: ["Angry", "Neutral", "Happy", "Green", "Purple", "Orange"],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: storedChromeMoodVals,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -49,6 +50,9 @@ class Graph extends React.Component {
             }
         }
     });
+    });
+    console.log(this.storedChromeMoodVals);
+    
   }
 
   render () {
