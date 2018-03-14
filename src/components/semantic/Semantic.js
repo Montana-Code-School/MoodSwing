@@ -37,7 +37,7 @@ class Semantic extends React.Component {
       let newMoodValue = {};
       newMoodValue.vals = [...currentMoodValue.vals, moodVal]
       newMoodValue.dates = [...currentMoodValue.dates, new Date().toString()]
-        chrome.storage.sync.set({'moodValue': newMoodValue });
+      chrome.storage.sync.set({'moodValue': newMoodValue });
       // localStorage.setItem('moodValue', {
       //   dates: this.state.dates,
       //   values: this.state.values
