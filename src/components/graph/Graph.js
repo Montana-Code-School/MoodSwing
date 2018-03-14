@@ -10,18 +10,45 @@ class Graph extends React.Component {
     }
   }
 
+  arraySum(storedChromeMoodVals) {
+    var test = storedChromeMoodVals
+    var zero = 0;
+    var one = 0;
+    var two = 0;
+    
+    for(var i = 0; i < test.length; i++){
+      console.log(test[i])
+       if (test[i]== 0){
+         zero++;
+       }
+      else if(test[i] == 1){
+        one++;
+      }
+      else if(test[i] == 2){
+         two++;
+      }
+      
+    }
+    var done = [];
+    done.push(zero);
+    done.push(one);
+    done.push(two);
+    
+    return(done);
+}  
+
   componentDidMount() {
-    chrome.storage.sync.get('moodValue', function(value) {
-        let storedChromeMoodVals = value.moodValue;
+    chrome.storage.sync.get('moodValue', (value) => {
+        let storedChromeMoodVals = this.arraySum(value.moodValue.vals);
         console.log(storedChromeMoodVals);
       var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Angry", "Neutral", "Happy"],
+            labels: ["Angry Kitty", "Neutral Kitty", "Happy Kitty"],
             datasets: [{
                 label: '# of Votes',
-                data: [6, 2, 1],
+                data: storedChromeMoodVals,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
