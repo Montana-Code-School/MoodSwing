@@ -20,14 +20,22 @@ class VRScene extends React.Component {
 
     return (
       <Scene>
-        <Entity particle-system={{preset: 'snow', particleCount: 5000}}/>
+       
+        {/* <Entity particle-system={{preset: 'snow', particleCount: 5000}}/>
         <Entity primitive='a-box' color="red" position="0 0 -5"/>
         <Entity primitive='a-sphere' color="green" position="-2 0 -3"/>
         <Entity primitive='a-cylinder' color="blue" position="2 0 -3"/>
         <Entity primitive='a-sky' src={winterSkyVR}/>
         <Entity primitive='a-text'scale="0.6 1.2 1" value="MOODSWING" color="black" position="-1 2.85 -3" width="3" size="6"/>
         <Entity primitive='a-text' value={greet} color="black" position="-1 3 -3"/>
-        <Entity primitive='a-plane' rotation="-90 0 0" color="orange" height="10" width="10"/> 
+        <Entity primitive='a-plane' rotation="-90 0 0" color="orange" height="10" width="10"/>  */}
+        
+        <a-assets >
+          <img id = "dino" src= "scene.gltf" alt ="dino"/>
+        </a-assets>
+        {/* <a-gltf-model src="dino"></a-gltf-model> */}
+        <Entity gltf-model={'scene.gltf'}/>
+
       </Scene>
     );
   }
