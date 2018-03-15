@@ -85,23 +85,23 @@ class Semantic extends React.Component {
     }
     return (
       <div>
-            <Modal trigger={<Button className="ui animated button"><Icon className="fa fa-heart"/></Button>}>
-            <Modal.Header>Meow Check Your Mood</Modal.Header>
-            <Modal.Content>
-              <Modal.Description>
-                <ToneAnalyzer/>
-                <Graph/>
-                <button className="ui animated button" onClick={this.handleClickEvent}>
-                  <div className="visible content">
-                    Erase the Past
-                  </div>
-                  <div className="hidden content">
-                    Be Gone!
-                  </div>
-                </button>
-              </Modal.Description>
-            </Modal.Content>
-          </Modal>
+        <Modal trigger={<Button className="ui animated button"><Icon className="fa fa-heart"/></Button>}>
+        <Modal.Header>Meow Check Your Mood</Modal.Header>
+        <Modal.Content>
+          <ToneAnalyzer/>
+          </Modal.Content>
+        <Modal.Content>
+          <Graph/>
+            <button className="ui animated button" onClick={this.handleClickEvent}>
+              <div className="visible content">
+                Erase the Past
+              </div>
+              <div className="hidden content">
+                Be Gone!
+              </div>
+            </button>
+          </Modal.Content>
+        </Modal>
       <div>
         
       <div className='slider'>
