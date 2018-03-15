@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "aframe": "^0.7.1",
+    "aframe-event-set-component": "^4.0.1",
+    "aframe-layout-component": "^4.3.1",
     "aframe-particle-system-component": "^1.0.11",
     "aframe-react": "^4.4.0",
     "axios": "^0.18.0",

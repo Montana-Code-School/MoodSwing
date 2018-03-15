@@ -18,13 +18,13 @@ class Graph extends React.Component {
     
     for(var i = 0; i < test.length; i++){
       console.log(test[i])
-       if (test[i]== 0){
+       if (test[i] === 0){
          zero++;
        }
-      else if(test[i] == 1){
+      else if(test[i] === 1){
         one++;
       }
-      else if(test[i] == 2){
+      else if(test[i] === 2){
          two++;
       }
       
