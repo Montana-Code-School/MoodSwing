@@ -32,11 +32,11 @@ class VRScene extends React.Component {
           {/* <audio id="click-sound" src="audio/click.ogg"></audio> */}
 
           {/* Images. */}
-          <img id="neutral" alt="Black cat, upright and filing it's nails." src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"/>
+          <img id="neutral" crossOrigin="anonymous" alt="Black cat, upright and filing it's nails." src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"/>
           {/* <img id="cubes" alt="360 degree world of green cubes layed out in rows." src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg"/> */}
-          <img id="angry" alt="Large, fluffy white cat with a birthday hat and cake looking very unhappy." src="https://media.giphy.com/media/l4KhS0BOFBhU2SYIU/giphy.gif"/>
+          <img id="angry" crossOrigin="anonymous" alt="Large, fluffy white cat with a birthday hat and cake looking very unhappy." src="https://media.giphy.com/media/l4KhS0BOFBhU2SYIU/giphy.gif"/>
           {/* <img id="sechelt" alt="360 degree view of a beach at night." src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"/> */}
-          <img id="happy" alt="Small white kitten on its back with its paws stretched over its head." src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif"/>
+          <img id="happy" crossOrigin="anonymous" alt="Small white kitten on its back with its paws stretched over its head." src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif"/>
 
 
         </a-assets>

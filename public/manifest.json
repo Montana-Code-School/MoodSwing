@@ -1,5 +1,5 @@
 {
-  "short_name": "MOODSWING",
+  "short_name": "HOLY CATZ!!",
   "name": "MOODSWING",
   "icons":{
     "16" : "favicon.ico",
@@ -9,7 +9,7 @@
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "MOODSWING",
+    "default_title": "HOLYCATZ!!",
     "default_icon": {
       "16" : "icon.png",
       "24" : "icon.png",
