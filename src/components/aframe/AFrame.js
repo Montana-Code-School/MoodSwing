@@ -33,9 +33,9 @@ class VRScene extends React.Component {
 
           {/* Images. */}
           <img id="neutral" crossOrigin="anonymous" alt="Black cat, upright and filing it's nails." src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"/>
-          {/* <img id="cubes" alt="360 degree world of green cubes layed out in rows." src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg"/> */}
+          <img id="cubes" alt="360 degree world of green cubes layed out in rows." src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg"/>
           <img id="angry" crossOrigin="anonymous" alt="Large, fluffy white cat with a birthday hat and cake looking very unhappy." src="https://media.giphy.com/media/l4KhS0BOFBhU2SYIU/giphy.gif"/>
-          {/* <img id="sechelt" alt="360 degree view of a beach at night." src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"/> */}
+          <img id="sechelt" alt="360 degree view of a beach at night." src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"/>
           <img id="happy" crossOrigin="anonymous" alt="Small white kitten on its back with its paws stretched over its head." src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif"/>
 
 
@@ -45,7 +45,7 @@ class VRScene extends React.Component {
         
         {/* 360-degree image. */}
 
-        <Entity primitive='a-sky' radius="10" src={winterSkyVR}/>
+        <Entity id="image-360" primitive='a-sky' radius="10" src={winterSkyVR}/>
 
         <Entity primitive='a-text'font= 'mozillavr' scale="0.6 1.2 1" value="If you need to talk to someone about how you're feeling, please call the Crisis Hotline 1-800-273-8255" color="black" position="-.75 2 -13" width="3" size="6"/>
         <Entity primitive='a-text'font= 'mozillavr' scale="0.6 1.2 1" value="HOLY CATZ!" color="black" position="-.75 2 -3" width="3" size="6"/>
@@ -62,7 +62,7 @@ class VRScene extends React.Component {
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: flat; src: #angry" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #city" >
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #cubes" >
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
           <Entity class="link" 
@@ -81,7 +81,7 @@ class VRScene extends React.Component {
         </Entity>
 
         {/* Camera + Cursor.  */}
-        {/* <a-entity camera="" look-controls="">
+        <a-entity camera="" look-controls="">
         <a-cursor id="cursor" 
           animation-click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
           animation-fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" 
@@ -93,7 +93,7 @@ class VRScene extends React.Component {
           fusing="0.09999999999999998 0.09999999999999998 0.09999999999999998 ">
         </a-cursor>
         </a-entity>
-        <a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible=""></a-entity> */}
+        <a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible=""></a-entity>
       </Scene>
     );
   }
