@@ -11,6 +11,7 @@ import groomSrc from './groom.gif';
 import angrykittySrc from './angrykitty.jpeg';
 import kitykittySrc from './kittykitty.jpeg';
 import SK from './SmilingCat.png';
+import catsSrc from './cats.mp3'
 
 class VRScene extends React.Component {
   render () {
@@ -36,8 +37,8 @@ class VRScene extends React.Component {
 
 
         <a-assets>
-          {/* <audio id="click-sound" src="audio/click.ogg"></audio> */}
-
+          <audio id="cats" src={catsSrc} preload="auto"></audio>
+          
           {/* Images. */}
           <img id="neutral" alt="Black cat, upright and filing its nails." src={groomSrc}/>
           <img id="puke" alt="360 degree world of green cubes layed out in rows." src={pukeSrc}/>
@@ -64,18 +65,6 @@ class VRScene extends React.Component {
         <Entity particle-system={{preset: "snow", size: 5, blending: 1, particleCount: 2000, texture: SK}} >
         </Entity>
 
-        {/* <a-entity geometry="primitive: sphere; radius: 100"
-                  material="color: skyblue"
-                  entity-generator="mixin: rain; num: 100">
-        <a-mixin id="rain"
-                 geometry="primitive: sphere; radius: 0.05"
-                 material="color: white; opacity: "
-                 event-set="_event: collide; explode"
-                 random-position= "min: -10 50 -10; max: 10 80 10"
-                 template = "src: #image-360">
-          </a-mixin>
-          </a-entity> */}
-          
           {/* Camera + Cursor.  */}
           <a-camera>
             <a-cursor id="cursor" 
@@ -96,8 +85,8 @@ class VRScene extends React.Component {
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: flat; src: #angrykitty" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke">
-            {/* sound="on: click; src: #click-sound"> */}
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke"
+            sound="on: click; src: #cats">
           </Entity>
           <Entity class="link" 
             position="-1.5"
