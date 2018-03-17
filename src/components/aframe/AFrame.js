@@ -56,20 +56,21 @@ class VRScene extends React.Component {
         <Entity primitive='a-text'font= 'mozillavr' scale="0.6 1.2 1" value="HOLY CATZ!" color="black" position="-.75 2 -3" width="3" size="6"/>
         <Entity primitive='a-text' font= 'mozillavr' value={greet} color="black" position="-.85 1.85 -3"/>
 
-        {/* Link we will build. */}
-        {/* Camera + Cursor.  */}
-        <a-camera>
-        <a-cursor id="cursor" 
-          animation-click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
-          animation-fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" 
-          event-set__1="_event: mouseenter; color: springgreen" 
-          event-set__2="_event: mouseleave; color: yellow" 
-          fuse="true" 
-          raycaster="objects: .link" 
-          color="yellow" 
-          fusing="0.09999999999999998 0.09999999999999998 0.09999999999999998 ">
-        </a-cursor>
-        </a-camera>
+          {/* Camera + Cursor.  */}
+          <a-camera>
+            <a-cursor id="cursor" 
+              animation-click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" 
+              animation-fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" 
+              event-set__1="_event: mouseenter; color: springgreen" 
+              event-set__2="_event: mouseleave; color: yellow" 
+              fuse="true" 
+              raycaster="objects: .link" 
+              color="yellow" 
+              fusing="0.09999999999999998 0.09999999999999998 0.09999999999999998 ">
+            </a-cursor>
+          </a-camera>
+
+          {/* Link we will build. */}
           <Entity id="links" layout="layout: line; margin: 1.5" position="1.5 -1 -4">
           <Entity class="link" 
             position="-3"
@@ -91,7 +92,6 @@ class VRScene extends React.Component {
             event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" >
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
-        
         </Entity>
 
        
