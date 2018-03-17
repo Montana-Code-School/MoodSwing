@@ -4,6 +4,12 @@ import 'aframe-event-set-component';
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
 import winterSkyVR from './winterSkyVR.jpg';
+import balloonSrc from './balloon.jpg';
+import climbSrc from './climb.jpg';
+import pukeSrc from './puke.jpg';
+import groomSrc from './groom.gif';
+import angrykittySrc from './angrykitty.jpeg';
+import kitykittySrc from './kittykitty.jpeg';
 
 class VRScene extends React.Component {
   render () {
@@ -32,11 +38,12 @@ class VRScene extends React.Component {
           {/* <audio id="click-sound" src="audio/click.ogg"></audio> */}
 
           {/* Images. */}
-          <img id="neutral" crossOrigin="anonymous" alt="Black cat, upright and filing it's nails." src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"/>
-          <img id="cubes" alt="360 degree world of green cubes layed out in rows." src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg"/>
-          <img id="angry" crossOrigin="anonymous" alt="Large, fluffy white cat with a birthday hat and cake looking very unhappy." src="https://media.giphy.com/media/l4KhS0BOFBhU2SYIU/giphy.gif"/>
-          <img id="sechelt" alt="360 degree view of a beach at night." src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"/>
-          <img id="happy" crossOrigin="anonymous" alt="Small white kitten on its back with its paws stretched over its head." src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif"/>
+          <img id="neutral" crossOrigin="anonymous" alt="Black cat, upright and filing its nails." src={groomSrc}/>
+          <img id="puke" alt="360 degree world of green cubes layed out in rows." src={pukeSrc}/>
+          <img id="angrykitty" crossOrigin="anonymous" alt="Large, fluffy white cat with a birthday hat and cake looking very unhappy." src={angrykittySrc}/>
+          <img id="climb" alt="climb" src={climbSrc}/>
+          <img id="kittykitty" crossOrigin="anonymous" alt="Small white kitten on its back with its paws stretched over its head." src={kitykittySrc}/>
+          <img id="balloon" crossOrigin="anonymous" alt="Small white kitten on its back with its paws stretched over its head." src={balloonSrc}/>
 
 
         </a-assets>
@@ -58,22 +65,21 @@ class VRScene extends React.Component {
           <Entity class="link" 
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: flat; src: #angry" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #cubes ">
-            {/* event-set="_event: mousedown; on: click; _target: #image-360" src={winterSkyVR} > */}
+            material="shader: flat; src: #angrykitty" 
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke">
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
           <Entity class="link" 
             position="-1.5"
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: flat; src: #neutral" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #city" >
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon" >
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
           <Entity class="link" 
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: flat; src: #happy" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #sechelt" >
+            material="shader: flat; src: #kittykitty" 
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" >
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
         </Entity>
