@@ -41,11 +41,13 @@ class VRScene extends React.Component {
 
         </a-assets>
 
-        <Entity particle-system={{preset: 'snow', particleCount: 5000}}/>
+        {/* <Entity primitive='a-sky' src={winterSkyVR}/> */}
+
+        {/* <Entity particle-system={{preset: 'snow', particleCount: 5000}}/> */}
         
         {/* 360-degree image. */}
 
-        {/* <Entity id="image-360" primitive='a-sky' radius="10" src={winterSkyVR}/> */}
+        <Entity id="image-360" primitive='a-sky' radius="10" src={winterSkyVR}/>
 
         <Entity primitive='a-text'font= 'mozillavr' scale="0.6 1.2 1" value="If you need to talk to someone about how you're feeling, please call the Crisis Hotline 1-800-273-8255" color="black" position="-.75 2 -13" width="3" size="6"/>
         <Entity primitive='a-text'font= 'mozillavr' scale="0.6 1.2 1" value="HOLY CATZ!" color="black" position="-.75 2 -3" width="3" size="6"/>
@@ -57,7 +59,8 @@ class VRScene extends React.Component {
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: flat; src: #angry" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #cubes" >
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #cubes ">
+            {/* event-set="_event: mousedown; on: click; _target: #image-360" src={winterSkyVR} > */}
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
           <Entity class="link" 
