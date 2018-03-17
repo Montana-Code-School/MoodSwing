@@ -10,6 +10,7 @@ import pukeSrc from './puke.jpg';
 import groomSrc from './groom.gif';
 import angrykittySrc from './angrykitty.jpeg';
 import kitykittySrc from './kittykitty.jpeg';
+import SK from './SmilingCat.png';
 
 class VRScene extends React.Component {
   render () {
@@ -56,6 +57,25 @@ class VRScene extends React.Component {
         <Entity primitive='a-text'font= 'mozillavr' scale="0.6 1.2 1" value="HOLY CATZ!" color="black" position="-.75 2 -3" width="3" size="6"/>
         <Entity primitive='a-text' font= 'mozillavr' value={greet} color="black" position="-.85 1.85 -3"/>
 
+        {/* Raining Cats */}
+
+        {/* <Entity particle-system={{preset: 'snow', particleCount: 5000}}/> */}
+
+        <Entity particle-system={{preset: "snow", size: 5, blending: 0, particleCount: 2000, texture: SK}} >
+        </Entity>
+
+        {/* <a-entity geometry="primitive: sphere; radius: 100"
+                  material="color: skyblue"
+                  entity-generator="mixin: rain; num: 100">
+        <a-mixin id="rain"
+                 geometry="primitive: sphere; radius: 0.05"
+                 material="color: white; opacity: "
+                 event-set="_event: collide; explode"
+                 random-position= "min: -10 50 -10; max: 10 80 10"
+                 template = "src: #image-360">
+          </a-mixin>
+          </a-entity> */}
+          
           {/* Camera + Cursor.  */}
           <a-camera>
             <a-cursor id="cursor" 
