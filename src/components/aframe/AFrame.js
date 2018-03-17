@@ -61,7 +61,7 @@ class VRScene extends React.Component {
 
         {/* <Entity particle-system={{preset: 'snow', particleCount: 5000}}/> */}
 
-        <Entity particle-system={{preset: "snow", size: 5, blending: 0, particleCount: 2000, texture: SK}} >
+        <Entity particle-system={{preset: "snow", size: 5, blending: 1, particleCount: 2000, texture: SK}} >
         </Entity>
 
         {/* <a-entity geometry="primitive: sphere; radius: 100"
