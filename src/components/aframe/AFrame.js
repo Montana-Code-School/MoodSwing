@@ -4,7 +4,6 @@ import 'aframe-event-set-component';
 import 'aframe-text-geometry-component';
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
-import winterSkyVR from './winterSkyVR.jpg';
 import balloonSrc from './balloon.jpg';
 import climbSrc from './climb.jpg';
 import pukeSrc from './puke.jpg';
