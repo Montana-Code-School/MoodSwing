@@ -3,7 +3,6 @@ import 'aframe-particle-system-component';
 import 'aframe-event-set-component';
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
-import winterSkyVR from './winterSkyVR.jpg';
 import balloonSrc from './balloon.jpg';
 import climbSrc from './climb.jpg';
 import pukeSrc from './puke.jpg';
@@ -11,7 +10,10 @@ import groomSrc from './groom.gif';
 import angrykittySrc from './angrykitty.jpeg';
 import kitykittySrc from './kittykitty.jpeg';
 import SK from './SmilingCat.png';
-import catsSrc from './cats.mp3'
+// import catsSrc from './cats.mp3';
+import purrSrc from './purring.mp3';
+// import screamSrc from './scream.wav';
+import {Howl, Howler} from 'howler';
 
 class VRScene extends React.Component {
   render () {
@@ -27,17 +29,18 @@ class VRScene extends React.Component {
     else if (hrs >= 17 && hrs <= 24)
         greet = 'Good Evening';
 
+    let sound = new Howl({
+      src: ['purring.mp3'], autoplay: true
+    });
+        
+
     return (
       <Scene>
-
-        {/*<Entity primitive='a-box'   src='https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif' position="0 0 -5"/>
-        <Entity primitive='a-sphere' color="green" position="-2 0 -3"/>
-        <Entity primitive='a-cylinder' color="blue" position="2 0 -3"/>
-        <Entity primitive='a-plane' rotation="-90 0 0"   src='https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif' height="10" width="10"/>  */}
-
-
         <a-assets>
-          <audio id="cats" src={catsSrc} preload="auto"></audio>
+          {/* Sound */}
+          {/* <audio id="cats" src={catsSrc} preload="auto"></audio> */}
+          <audio id="purr" src={purrSrc} preload="auto" loop="true" pauseSound="true"></audio>
+          {/* <audio id="scream" src={screamSrc} preload="auto"></audio> */}
           
           {/* Images. */}
           <img id="neutral" alt="Black cat, upright and filing its nails." src={groomSrc}/>
@@ -59,9 +62,6 @@ class VRScene extends React.Component {
         <Entity primitive='a-text' font= 'mozillavr' value={greet} color="black" position="-.85 1.85 -3"/>
 
         {/* Raining Cats */}
-
-        {/* <Entity particle-system={{preset: 'snow', particleCount: 5000}}/> */}
-
         <Entity particle-system={{preset: "snow", size: 5, blending: 1, particleCount: 2000, texture: SK}} >
         </Entity>
 
@@ -79,27 +79,30 @@ class VRScene extends React.Component {
             </a-cursor>
           </a-camera>
 
+          <a-entity sound="src: #purr; autoplay: true"></a-entity>
+
           {/* Link we will build. */}
           <Entity id="links" layout="layout: line; margin: 1.5" position="1.5 -1 -4">
           <Entity class="link" 
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: flat; src: #angrykitty" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke"
-            sound="on: click; src: #cats">
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke">
+            {/* // sound="on: click; src: #cats"> */}
           </Entity>
           <Entity class="link" 
             position="-1.5"
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: flat; src: #neutral" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon" >
-            {/* sound="on: click; src: #click-sound"> */}
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon">
+            {/* sound="on: click; src: #scream"> */}
           </Entity>
           <Entity class="link" 
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: flat; src: #kittykitty" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" >
-            {/* sound="on: click; src: #click-sound"> */}
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" 
+            sound="on: click">
+            {/* sound.play(); */}
           </Entity>
         </Entity>
 
