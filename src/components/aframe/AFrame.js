@@ -1,6 +1,7 @@
 import 'aframe';
 import 'aframe-particle-system-component';
 import 'aframe-event-set-component';
+import 'aframe-text-geometry-component';
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
 import winterSkyVR from './winterSkyVR.jpg';
@@ -29,14 +30,10 @@ class VRScene extends React.Component {
     return (
       <Scene>
 
-        {/*<Entity primitive='a-box'   src='https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif' position="0 0 -5"/>
-        <Entity primitive='a-sphere' color="green" position="-2 0 -3"/>
-        <Entity primitive='a-cylinder' color="blue" position="2 0 -3"/>
-        <Entity primitive='a-plane' rotation="-90 0 0"   src='https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif' height="10" width="10"/>  */}
-
-
         <a-assets>
           {/* <audio id="click-sound" src="audio/click.ogg"></audio> */}
+
+          <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
 
           {/* Images. */}
           <img id="neutral" alt="Black cat, upright and filing its nails." src={groomSrc}/>
@@ -53,28 +50,13 @@ class VRScene extends React.Component {
 
         <Entity id="image-360" primitive='a-sky' radius="10" src={balloonSrc}/>
 
-        <Entity primitive='a-text'font= 'mozillavr' scale="0.6 1.2 1" value="If you need to talk to someone about how you're feeling, please call the Crisis Hotline 1-800-273-8255" color="black" position="-.75 2 -13" width="3" size="6"/>
-        <Entity primitive='a-text'font= 'mozillavr' scale="0.6 1.2 1" value="HOLY CATZ!" color="black" position="-.75 2 -3" width="3" size="6"/>
-        <Entity primitive='a-text' font= 'mozillavr' value={greet} color="black" position="-.85 1.85 -3"/>
+        <Entity primitive='a-text' font= 'mozillavr' scale="0.6 1.2 1" value="If you need to talk to someone about how you're feeling, please call the Crisis Hotline 1-800-273-8255" color="black" position="-.75 2 -13" width="3" size="6"/>
+        <Entity primitive='a-text' scale="0.6 1.2 1" text-geometry="value:HOLY CATZ!" position="-.75 2.85 -3" width="3" size="6"/>
+        <Entity primitive='a-text' text-geometry="value:{greet}; font: #optimerBoldFont" position="-.85 2 -3"/>
 
         {/* Raining Cats */}
-
-        {/* <Entity particle-system={{preset: 'snow', particleCount: 5000}}/> */}
-
         <Entity particle-system={{preset: "snow", size: 5, blending: 1, particleCount: 2000, texture: SK}} >
         </Entity>
-
-        {/* <a-entity geometry="primitive: sphere; radius: 100"
-                  material="color: skyblue"
-                  entity-generator="mixin: rain; num: 100">
-        <a-mixin id="rain"
-                 geometry="primitive: sphere; radius: 0.05"
-                 material="color: white; opacity: "
-                 event-set="_event: collide; explode"
-                 random-position= "min: -10 50 -10; max: 10 80 10"
-                 template = "src: #image-360">
-          </a-mixin>
-          </a-entity> */}
           
           {/* Camera + Cursor.  */}
           <a-camera>
@@ -91,7 +73,7 @@ class VRScene extends React.Component {
           </a-camera>
 
           {/* Link we will build. */}
-          <Entity id="links" layout="layout: line; margin: 1.5" position="1.5 -1 -4">
+          <Entity id="links" layout="layout: line; margin: 1.5" position="1.5 0 -4">
           <Entity class="link" 
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
