@@ -1,19 +1,19 @@
 {
-  "short_name": "HOLY CATZ!!",
-  "name": "MOODSWING",
+  "short_name": "HOLY CATZ!",
+  "name": "HOLY CATZ!",
   "icons":{
-    "16" : "favicon.ico",
-    "48" : "favicon.ico",
-    "128" : "favicon.ico"
+    "16" : "favicon16.ico",
+    "48" : "favicon48.ico",
+    "128" : "favicon128.ico"
   },
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "HOLYCATZ!!",
+    "default_title": "HOLY CATZ!!",
     "default_icon": {
-      "16" : "icon.png",
-      "24" : "icon.png",
-      "32" : "icon.png"
+      "16" : "cat16.png",
+      "24" : "cat24.png",
+      "32" : "cat32.png"
     }
   },
   "version": "1.0",
