@@ -16,6 +16,12 @@ import purrSrc from './purring.mp3';
 import {Howl, Howler} from 'howler';
 
 class VRScene extends React.Component {
+  // constructor(props){
+  // super(props);
+  // this.state = {
+  // }
+  // this.playthis = this.playthis.bind(this);
+
   render () {
     var myDate = new Date();
     var hrs = myDate.getHours();
@@ -30,17 +36,19 @@ class VRScene extends React.Component {
         greet = 'Good Evening';
 
     let sound = new Howl({
-      src: ['purring.mp3'], autoplay: true
+      src: purrSrc, 
+      autoplay: false
     });
-        
+
+    // sound.play= (item) => {
+    //  if (item == "purr"){
+    //   sound.play()
+    //  }
+    // }
 
     return (
       <Scene>
         <a-assets>
-          {/* Sound */}
-          {/* <audio id="cats" src={catsSrc} preload="auto"></audio> */}
-          <audio id="purr" src={purrSrc} preload="auto" loop="true" pauseSound="true"></audio>
-          {/* <audio id="scream" src={screamSrc} preload="auto"></audio> */}
           
           {/* Images. */}
           <img id="neutral" alt="Black cat, upright and filing its nails." src={groomSrc}/>
@@ -79,7 +87,12 @@ class VRScene extends React.Component {
             </a-cursor>
           </a-camera>
 
-          <a-entity sound="src: #purr; autoplay: true"></a-entity>
+          {/* <a-entity sound="src: #purr; autoplay: true"></a-entity> */}
+          <a-entity 
+            sound={sound.play()}
+            event-set="_event: mousedown; on: click; _target: sound; src: purrSrc"
+            >
+            </a-entity>
 
           {/* Link we will build. */}
           <Entity id="links" layout="layout: line; margin: 1.5" position="1.5 -1 -4">
@@ -100,9 +113,10 @@ class VRScene extends React.Component {
           <Entity class="link" 
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: flat; src: #kittykitty" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" 
-            sound="on: click">
-            {/* sound.play(); */}
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb">
+            {/* // sound="on: click; _target: sound" >
+            // onClick= {sound.play(purrSrc)}> */}
+        
           </Entity>
         </Entity>
 
