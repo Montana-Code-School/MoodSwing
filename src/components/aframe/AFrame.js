@@ -5,7 +5,7 @@ import 'aframe-text-geometry-component';
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
 import balloonSrc from './balloon.jpg';
-import climbSrc from './climb.jpg';
+import climbSrc from './Edderkoppespind.jpg';
 import pukeSrc from './puke.jpg';
 import groomSrc from './groom.gif';
 import angrykittySrc from './angrykitty.jpeg';
