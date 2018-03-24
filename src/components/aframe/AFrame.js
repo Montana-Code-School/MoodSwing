@@ -13,8 +13,19 @@ import groomSrc from './groom.gif';
 import angrykittySrc from './angrykitty.gif';
 import kitykittySrc from './happycat.gif';
 import SK from './SmilingCat.png';
+import purrSrc from './purring.mp3';
+import {Howl, Howler} from 'howler';
 
 class VRScene extends React.Component {
+  handPurr(e) {
+    e.preventDefault();
+    console.log('purr')
+    var sound = new Howl({
+      src: purrSrc, 
+      autoplay: false
+    }).play()
+  }
+ 
   render () {
     // var myDate = new Date();
     // var hrs = myDate.getHours();
@@ -28,12 +39,14 @@ class VRScene extends React.Component {
     // else if (hrs >= 17 && hrs <= 24)
     //     greet = 'Good Evening';
 
+    // let sound = new Howl({
+    //   src: purrSrc, 
+    //   autoplay: false
+    // });
+
     return (
       <Scene>
-
         <a-assets>
-          {/* <audio id="click-sound" src="audio/click.ogg"></audio> */}
-
           <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
 
           {/* Images. */}
@@ -73,6 +86,12 @@ class VRScene extends React.Component {
             </a-cursor>
           </a-camera>
 
+          {/* <a-entity 
+            sound={sound.play()}
+            event-set="_event: mousedown; on: click; _target: sound; src: purrSrc"
+            >
+            </a-entity> */}
+
           {/* Link we will build. */}
           <Entity id="links" layout="layout: line; margin: 1.5" position="1.5 0 -4">
           <Entity class="link" 
@@ -80,7 +99,6 @@ class VRScene extends React.Component {
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: gif; src: #angrykitty" 
             event-set="_event: mousedown; on: click; _target: #image-360; src: #puke">
-            {/* sound="on: click; src: #click-sound"> */}
           </Entity>
           <Entity class="link" 
             position="-1.5"
@@ -92,12 +110,11 @@ class VRScene extends React.Component {
           <Entity class="link" 
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: gif; src: #kittykitty" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" >
-            {/* sound="on: click; src: #click-sound"> */}
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" 
+            events={{
+              click: this.handPurr}}>
           </Entity>
         </Entity>
-
-       
       </Scene>
     );
   }

@@ -15,6 +15,7 @@
     "chart.js": "^2.7.2",
     "curl": "^0.1.4",
     "font-awesome": "^4.7.0",
+    "howler": "^2.0.9",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rangeslider": "^2.2.0",
