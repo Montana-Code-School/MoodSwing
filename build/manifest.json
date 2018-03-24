@@ -20,6 +20,9 @@
   "background": {
     "page": "popup.html"
   },
+  "web_accessible_resources": [
+    "gif/*.gif"
+  ],
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
