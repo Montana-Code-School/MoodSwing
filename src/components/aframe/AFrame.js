@@ -30,7 +30,7 @@ class VRScene extends React.Component {
   handAngry(e) {
     e.preventDefault();
     var sound = new Howl({
-      src: neutralSoundSrc, 
+      src: angrySoundSrc, 
       autoplay: false
     }).play()
   }
@@ -38,7 +38,7 @@ class VRScene extends React.Component {
   handNeutral(e) {
     e.preventDefault();
     var sound = new Howl({
-      src: angrySoundSrc, 
+      src: neutralSoundSrc, 
       autoplay: false
     }).play()
   }
