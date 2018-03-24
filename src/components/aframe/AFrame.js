@@ -10,8 +10,8 @@ import balloonSrc from './Tiburon.jpg';
 import climbSrc from './Edderkoppespind.jpg';
 import pukeSrc from './balloon.jpg';
 import groomSrc from './groom.gif';
-import angrykittySrc from './angrykitty.jpeg';
-import kitykittySrc from './kittykitty.jpeg';
+import angrykittySrc from './angrykitty.gif';
+import kitykittySrc from './happycat.gif';
 import SK from './SmilingCat.png';
 
 class VRScene extends React.Component {
@@ -91,7 +91,7 @@ class VRScene extends React.Component {
           </Entity>
           <Entity class="link" 
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: flat; src: #kittykitty" 
+            material="shader: gif; src: #kittykitty" 
             event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" >
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
