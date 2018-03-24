@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "aframe": "^0.7.1",
+    "aframe-gif-component": "^0.2.0",
     "aframe-event-set-component": "^4.0.1",
+    "aframe-gif-shader": "^0.2.0",
     "aframe-layout-component": "^4.3.1",
     "aframe-particle-system-component": "^1.0.11",
     "aframe-react": "^4.4.0",
@@ -13,6 +15,7 @@
     "chart.js": "^2.7.2",
     "curl": "^0.1.4",
     "font-awesome": "^4.7.0",
+    "howler": "^2.0.9",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rangeslider": "^2.2.0",
@@ -27,5 +30,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "devDependencies": {}
 }

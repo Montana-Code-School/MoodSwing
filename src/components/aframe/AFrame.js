@@ -2,36 +2,52 @@ import 'aframe';
 import 'aframe-particle-system-component';
 import 'aframe-event-set-component';
 import 'aframe-text-geometry-component';
+import 'aframe-gif-shader';
+import 'aframe-gif-component';
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
-import balloonSrc from './balloon.jpg';
-import climbSrc from './climb.jpg';
-import pukeSrc from './puke.jpg';
+import balloonSrc from './Tiburon.jpg';
+import climbSrc from './Edderkoppespind.jpg';
+import pukeSrc from './balloon.jpg';
 import groomSrc from './groom.gif';
-import angrykittySrc from './angrykitty.jpeg';
-import kitykittySrc from './kittykitty.jpeg';
+import angrykittySrc from './angrykitty.gif';
+import kitykittySrc from './happycat.gif';
 import SK from './SmilingCat.png';
+import purrSoundSrc from './purr.wav';
+import angrySoundSrc from './angry.wav';
+import neutralSoundSrc from './neutral.wav';
+import {Howl, Howler} from 'howler';
 
 class VRScene extends React.Component {
+  handPurr(e) {
+    e.preventDefault();
+    var sound = new Howl({
+      src: purrSoundSrc, 
+      autoplay: false
+    }).play()
+  }
+
+  handAngry(e) {
+    e.preventDefault();
+    var sound = new Howl({
+      src: angrySoundSrc, 
+      autoplay: false
+    }).play()
+  }
+
+  handNeutral(e) {
+    e.preventDefault();
+    var sound = new Howl({
+      src: neutralSoundSrc, 
+      autoplay: false
+    }).play()
+  }
+ 
   render () {
-    var myDate = new Date();
-    var hrs = myDate.getHours();
-
-    var greet;
-
-    if (hrs < 12)
-        greet = 'Good Morning';
-    else if (hrs >= 12 && hrs <= 17)
-        greet = 'Good Afternoon';
-    else if (hrs >= 17 && hrs <= 24)
-        greet = 'Good Evening';
 
     return (
       <Scene>
-
         <a-assets>
-          {/* <audio id="click-sound" src="audio/click.ogg"></audio> */}
-
           <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
 
           {/* Images. */}
@@ -49,10 +65,7 @@ class VRScene extends React.Component {
         <Entity id="image-360" primitive='a-sky' radius="10" src={balloonSrc}/>
 
         <Entity primitive='a-text' font= 'mozillavr' scale="0.6 1.2 1" value="If you need to talk to someone about how you're feeling, please call the Crisis Hotline 1-800-273-8255" color="black" position="-.75 2 -13" width="3" size="6"/>
-        <Entity primitive='a-text' scale="1.6 3.2 .1" text-geometry="value:HOLY CATZ!; bevelEnabled: true; bevelSize: 0.1; bevelThickness: 0.1; curveSegments: 1; size: 0.5; height: 0.5" metalness="0.9" roughness="0.05" position="-.75 2.85 -3"/>
-        <Entity primitive='a-text' text-geometry="value: 'greet', font: 'optimerBoldFont', position: '-.85 2 -3'"/>
-        <Entity primitive='a-text' font='mozillavr' value={greet} color="black" position="-.85 1.85 -3"/>
-
+        <Entity primitive='a-text' scale="0.6 1.2 1" text-geometry="value:HOLY CATZ!" position="-1.2 2.85 -3" width="3" size="6"/>
 
         {/* Raining Cats */}
         <Entity particle-system={{preset: "snow", size: 5, blending: 1, particleCount: 2000, texture: SK}} >
@@ -77,26 +90,27 @@ class VRScene extends React.Component {
           <Entity class="link" 
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: flat; src: #angrykitty" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke">
-            {/* sound="on: click; src: #click-sound"> */}
+            material="src: #angrykitty" 
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke"
+            events={{
+              click: this.handAngry}} >
           </Entity>
           <Entity class="link" 
             position="-1.5"
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: flat; src: #neutral" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon" >
-            {/* sound="on: click; src: #click-sound"> */}
+            material="src: #neutral" 
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon" 
+            events={{
+              click: this.handNeutral}} >       
           </Entity>
           <Entity class="link" 
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: flat; src: #kittykitty" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" >
-            {/* sound="on: click; src: #click-sound"> */}
+            material="src: #kittykitty" 
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" 
+            events={{
+              click: this.handPurr}}>
           </Entity>
         </Entity>
-
-       
       </Scene>
     );
   }
