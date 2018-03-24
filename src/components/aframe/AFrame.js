@@ -13,36 +13,37 @@ import groomSrc from './groom.gif';
 import angrykittySrc from './angrykitty.gif';
 import kitykittySrc from './happycat.gif';
 import SK from './SmilingCat.png';
-import purrSrc from './purring.mp3';
+import purrSoundSrc from './purr.wav';
+import angrySoundSrc from './angry.wav';
+import neutralSoundSrc from './neutral.wav';
 import {Howl, Howler} from 'howler';
 
 class VRScene extends React.Component {
   handPurr(e) {
     e.preventDefault();
-    console.log('purr')
     var sound = new Howl({
-      src: purrSrc, 
+      src: purrSoundSrc, 
+      autoplay: false
+    }).play()
+  }
+
+  handAngry(e) {
+    e.preventDefault();
+    var sound = new Howl({
+      src: neutralSoundSrc, 
+      autoplay: false
+    }).play()
+  }
+
+  handNeutral(e) {
+    e.preventDefault();
+    var sound = new Howl({
+      src: angrySoundSrc, 
       autoplay: false
     }).play()
   }
  
   render () {
-    // var myDate = new Date();
-    // var hrs = myDate.getHours();
-
-    // var greet;
-
-    // if (hrs < 12)
-    //     greet = 'Good Morning';
-    // else if (hrs >= 12 && hrs <= 17)
-    //     greet = 'Good Afternoon';
-    // else if (hrs >= 17 && hrs <= 24)
-    //     greet = 'Good Evening';
-
-    // let sound = new Howl({
-    //   src: purrSrc, 
-    //   autoplay: false
-    // });
 
     return (
       <Scene>
@@ -66,7 +67,6 @@ class VRScene extends React.Component {
 
         <Entity primitive='a-text' font= 'mozillavr' scale="0.6 1.2 1" value="If you need to talk to someone about how you're feeling, please call the Crisis Hotline 1-800-273-8255" color="black" position="-.75 2 -13" width="3" size="6"/>
         <Entity primitive='a-text' scale="0.6 1.2 1" text-geometry="value:HOLY CATZ!" position="-.75 2.85 -3" width="3" size="6"/>
-        {/* <Entity primitive='a-text' text-geometry="value:{greet}; font: #optimerBoldFont" position="-.85 2 -3"/> */}
 
         {/* Raining Cats */}
         <Entity particle-system={{preset: "snow", size: 5, blending: 1, particleCount: 2000, texture: SK}} >
@@ -86,26 +86,23 @@ class VRScene extends React.Component {
             </a-cursor>
           </a-camera>
 
-          {/* <a-entity 
-            sound={sound.play()}
-            event-set="_event: mousedown; on: click; _target: sound; src: purrSrc"
-            >
-            </a-entity> */}
-
           {/* Link we will build. */}
           <Entity id="links" layout="layout: line; margin: 1.5" position="1.5 0 -4">
           <Entity class="link" 
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: gif; src: #angrykitty" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke">
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #puke"
+            events={{
+              click: this.handAngry}} >
           </Entity>
           <Entity class="link" 
             position="-1.5"
             geometry="primitive: plane; height: 1; width: 1" 
             material="shader: gif; src: #neutral" 
-            event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon" >
-            {/* sound="on: click; src: #click-sound"> */}
+            event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon" 
+            events={{
+              click: this.handNeutral}} >       
           </Entity>
           <Entity class="link" 
             geometry="primitive: plane; height: 1; width: 1" 
