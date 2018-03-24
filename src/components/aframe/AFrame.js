@@ -10,7 +10,7 @@ import groomSrc from './groom.gif';
 import angrykittySrc from './angrykitty.jpeg';
 import kitykittySrc from './kittykitty.jpeg';
 import SK from './SmilingCat.png';
-import purrSrc from './purring.mp3';
+import purrSrc from './purr.wav';
 import {Howl} from 'howler';
 
 class VRScene extends React.Component {
