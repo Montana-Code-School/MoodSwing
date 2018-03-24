@@ -9,7 +9,7 @@
     <title>HOLY CATZ!!</title>
     <style type="text/css">
       body {
-        margin: 10px;
+        width: 400px;
         background: linear-gradient(
           to right, 
           #e81123,     
@@ -32,9 +32,7 @@
       }
 
       #container {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
+        width: 400px
       }
     </style>
 
@@ -47,9 +45,9 @@
     <script src="popup.js"></script>
   </head>
 
-  <body>
+  <body id="container"  min-width="300px">
     <h1>Welcome to HOLY CATZ!!</h1>
-    <div id="container">
+    <div>
       Use the arrow keys to move around!<br/>
       Use the click and drage the mouse to look around!<br/>
       Slide the slider to align with your mood!<br/>

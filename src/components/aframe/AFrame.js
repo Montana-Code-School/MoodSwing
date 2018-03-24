@@ -42,7 +42,6 @@ class VRScene extends React.Component {
           <img id="kittykitty" alt="Small white kitten on its back with its paws stretched over its head." src={kitykittySrc}/>
           <img id="balloon" alt="Small white kitten on its back with its paws stretched over its head." src={balloonSrc}/>
 
-
         </a-assets>
         
         {/* 360-degree image. */}
@@ -50,8 +49,10 @@ class VRScene extends React.Component {
         <Entity id="image-360" primitive='a-sky' radius="10" src={balloonSrc}/>
 
         <Entity primitive='a-text' font= 'mozillavr' scale="0.6 1.2 1" value="If you need to talk to someone about how you're feeling, please call the Crisis Hotline 1-800-273-8255" color="black" position="-.75 2 -13" width="3" size="6"/>
-        <Entity primitive='a-text' scale="0.6 1.2 1" text-geometry="value:HOLY CATZ!" position="-.75 2.85 -3" width="3" size="6"/>
-        <Entity primitive='a-text' text-geometry="value:{greet}; font: #optimerBoldFont" position="-.85 2 -3"/>
+        <Entity primitive='a-text' scale="1.6 3.2 .1" text-geometry="value:HOLY CATZ!; bevelEnabled: true; bevelSize: 0.1; bevelThickness: 0.1; curveSegments: 1; size: 0.5; height: 0.5" metalness="0.9" roughness="0.05" position="-.75 2.85 -3"/>
+        <Entity primitive='a-text' text-geometry="value: 'greet', font: 'optimerBoldFont', position: '-.85 2 -3'"/>
+        <Entity primitive='a-text' font='mozillavr' value={greet} color="black" position="-.85 1.85 -3"/>
+
 
         {/* Raining Cats */}
         <Entity particle-system={{preset: "snow", size: 5, blending: 1, particleCount: 2000, texture: SK}} >
