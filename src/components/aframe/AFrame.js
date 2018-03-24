@@ -6,7 +6,7 @@ import { Entity, Scene } from 'aframe-react';
 import React from 'react';
 import balloonSrc from './balloon.jpg';
 import climbSrc from './Edderkoppespind.jpg';
-import pukeSrc from './puke.jpg';
+import pukeSrc from './woodland.jpg';
 import groomSrc from './groom.gif';
 import angrykittySrc from './angrykitty.jpeg';
 import kitykittySrc from './kittykitty.jpeg';
