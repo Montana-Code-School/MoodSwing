@@ -66,7 +66,7 @@ class VRScene extends React.Component {
         <Entity id="image-360" primitive='a-sky' radius="10" src={balloonSrc}/>
 
         <Entity primitive='a-text' font= 'mozillavr' scale="0.6 1.2 1" value="If you need to talk to someone about how you're feeling, please call the Crisis Hotline 1-800-273-8255" color="black" position="-.75 2 -13" width="3" size="6"/>
-        <Entity primitive='a-text' scale="0.6 1.2 1" text-geometry="value:HOLY CATZ!" position="-.75 2.85 -3" width="3" size="6"/>
+        <Entity primitive='a-text' scale="0.6 1.2 1" text-geometry="value:HOLY CATZ!" position="-1.2 2.85 -3" width="3" size="6"/>
 
         {/* Raining Cats */}
         <Entity particle-system={{preset: "snow", size: 5, blending: 1, particleCount: 2000, texture: SK}} >
@@ -91,7 +91,7 @@ class VRScene extends React.Component {
           <Entity class="link" 
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: gif; src: #angrykitty" 
+            material="src: #angrykitty" 
             event-set="_event: mousedown; on: click; _target: #image-360; src: #puke"
             events={{
               click: this.handAngry}} >
@@ -99,14 +99,14 @@ class VRScene extends React.Component {
           <Entity class="link" 
             position="-1.5"
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: gif; src: #neutral" 
+            material="src: #neutral" 
             event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon" 
             events={{
               click: this.handNeutral}} >       
           </Entity>
           <Entity class="link" 
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: gif; src: #kittykitty" 
+            material="src: #kittykitty" 
             event-set="_event: mousedown; on: click; _target: #image-360; src: #climb" 
             events={{
               click: this.handPurr}}>

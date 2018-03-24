@@ -47,7 +47,7 @@ class Graph extends React.Component {
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Angry Kitty", "Neutral Kitty", "Happy Kitty"],
+            labels: ["Angry", "Neutral", "Happy"],
             datasets: [{
                 label: '# of Votes',
                 data: storedChromeMoodVals,
