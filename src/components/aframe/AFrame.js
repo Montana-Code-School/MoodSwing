@@ -2,6 +2,8 @@ import 'aframe';
 import 'aframe-particle-system-component';
 import 'aframe-event-set-component';
 import 'aframe-text-geometry-component';
+import 'aframe-gif-shader';
+import 'aframe-gif-component';
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
 import balloonSrc from './Tiburon.jpg';
@@ -76,14 +78,14 @@ class VRScene extends React.Component {
           <Entity class="link" 
             position="-3"
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: flat; src: #angrykitty" 
+            material="shader: gif; src: #angrykitty" 
             event-set="_event: mousedown; on: click; _target: #image-360; src: #puke">
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
           <Entity class="link" 
             position="-1.5"
             geometry="primitive: plane; height: 1; width: 1" 
-            material="shader: flat; src: #neutral" 
+            material="shader: gif; src: #neutral" 
             event-set="_event: mousedown; on: click; _target: #image-360; src: #balloon" >
             {/* sound="on: click; src: #click-sound"> */}
           </Entity>
