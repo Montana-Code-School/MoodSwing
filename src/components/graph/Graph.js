@@ -2,8 +2,6 @@
 
 import React from 'react';
 import Chart from 'chart.js';
-import { Card } from 'semantic-ui-react';
-
 
 class Graph extends React.Component {
   constructor (props) {
@@ -80,11 +78,7 @@ class Graph extends React.Component {
   render () {
 
     return (
-      <Card>
-        <Card.Content>
       <canvas id="myChart" width="400" height="400"></canvas>
-        </Card.Content>
-      </Card>
     )
   }
 }
