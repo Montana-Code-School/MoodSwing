@@ -1,9 +1,4 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
   <head>
     <title>HOLY CATZ!!</title>
@@ -17,25 +12,20 @@
         width: 400px
       }
     </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-    -->
     <script src="popup.js"></script>
   </head>
 
   <body>
     <h1>Welcome to HOLY CATZ!!</h1>
     <div id="container">
+      <h3>
       Use the arrow keys to move around!<br/>
       Click and drag the mouse to look around!<br/>
       Pick a point on the slider that aligns with your mood!<br/>
       Position the yellow circle over the cat images. When the circle <br/>
       turns green, click to change your world!<br/>
       Click the icon in the top left to analyze your mood!
+      </h3>
     </div>    
   </body>
 </html>
