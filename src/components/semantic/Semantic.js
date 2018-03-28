@@ -38,28 +38,12 @@ class Semantic extends React.Component {
       newMoodValue.vals = [...currentMoodValue.vals, moodVal]
       newMoodValue.dates = [...currentMoodValue.dates, new Date().toString()]
       chrome.storage.sync.set({'moodValue': newMoodValue });
-      // localStorage.setItem('moodValue', {
-      //   dates: this.state.dates,
-      //   values: this.state.values
-      // })
       chrome.storage.sync.get('moodValue', function(value) {
-        // console.log(value);
       });
-      // localStorage.getItem('moodValue', function(value) {
-      //   console.log(value);
-      // });
     });
   };
 
   handleChangeComplete = value => {
-  //   this.setState({
-  //     value: value
-  //   })
-  //   console.log('Change event completed')
-  //   chrome.storage.sync.set({'moodValue': this.state.value})
-  //   chrome.storage.sync.get('moodValue', function(value) {
-  //     console.log(value);
-  //   });
   };
 
   handleClickEvent(e) {
@@ -71,10 +55,6 @@ class Semantic extends React.Component {
       }
    });
   };
-
-  // clearStorage = () => {
-  //   console.log("it's working");
-  // };
   
   render () {
     const value = this.state.value;

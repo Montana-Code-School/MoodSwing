@@ -1,8 +1,6 @@
 /* global chrome */
 
 import React from 'react';
-// import Textarea from 'react-textarea-count';
-// import { Button } from 'semantic-ui-react';
 import "../../../node_modules/semantic-ui-forest-themes/semantic.darkly.css";
 import axios from 'axios';
 
